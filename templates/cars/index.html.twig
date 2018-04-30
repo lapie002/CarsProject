@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello!{% endblock %}
+
+{% block body %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>My Cars! ✅</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>MPG</th>
+      <th>Cylinders</th>
+      <th>Displacement</th>
+      <th>Horsepower</th>
+      <th>Weight</th>
+      <th>Acceleration</th>
+      <th>Model</th>
+      <th>Origin</th>
+    </tr>
+
+    {% for car in cars %}
+      <tr>
+         <td><a href="#">{{ car.name }}</a></td>
+         <td>{{ car.mpg }}</td>
+         <td>{{ car.cylinders }}</td>
+         <td>{{ car.displacement }}</td>
+         <td>{{ car.horsepower }}</td>
+         <td>{{ car.weight }}</td>
+         <td>{{ car.acceleration }}</td>
+         <td>{{ car.model }}</td>
+         <td>{{ car.origin }}</td>
+      </tr>
+    {% endfor %}
+
+  </table>
+
+
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'src/Controller/CarsController.php'|file_link(0) }}">src/Controller/CarsController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'templates/cars/index.html.twig'|file_link(0) }}">templates/cars/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %}
